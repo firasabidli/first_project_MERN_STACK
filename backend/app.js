@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-app.use((req, res) => {
-  res.json('Firas abidli using app.js!');
-});
 mongoose.connect('mongodb://127.0.0.1:27017/Project-MERN',
   { useNewUrlParser: true,
     useUnifiedTopology: true
