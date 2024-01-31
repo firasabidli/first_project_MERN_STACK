@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const todoRouter = require('./Routes/Todos');
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/Project-MERN',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+
+mongoose.connect('mongodb://127.0.0.1:27017/Project-MERN',)
   .then(() => console.log('Connected successfully to MongoDB !'))
   .catch(() => console.log('Connection failed to MongoDB !'));
 
@@ -18,5 +17,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/Project-MERN',
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
+
+  app.use('/api/todos', todoRouter);
 
 module.exports = app;
