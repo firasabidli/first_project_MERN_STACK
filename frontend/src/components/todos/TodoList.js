@@ -1,7 +1,8 @@
-// Exemple dans le fichier TodoList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BsPencilSquare } from "react-icons/bs";
+import { FaTrashAlt } from "react-icons/fa";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -32,7 +33,13 @@ const TodoList = () => {
               <td>{todo.title}</td>
               <td>{todo.description}</td>
               <td>
-                
+              <button type="button" className="btn btn-warning">
+                  <BsPencilSquare /> 
+                </button>
+                {' '}
+                <button type="button" className="btn btn-danger">
+                  <FaTrashAlt /> 
+                </button>
               </td>
             </tr>
           ))}
