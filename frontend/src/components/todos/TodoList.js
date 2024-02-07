@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsPencilSquare } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 
+import CreateTodo from './CreateTodo';
+
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
@@ -15,9 +17,10 @@ const TodoList = () => {
 
   return (
     <div>
-      <h2>Liste des Todos</h2>
-
-      <table className="table table-hover table-bordered">
+      <h2 className="text-center">Liste des Todos</h2>
+      <CreateTodo />
+     
+      <table className="table table-hover table-bordered text-center mt-4 ">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -45,7 +48,9 @@ const TodoList = () => {
           ))}
         </tbody>
       </table>
+      
     </div>
+   
   );
 };
 
