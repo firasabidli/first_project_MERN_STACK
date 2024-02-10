@@ -20,20 +20,20 @@ exports.create = (req, res, next) => {
     ...req.body
   });
   newTodo.save()
-    .then(() => res.status(201).json({ message: 'Todo created  !'}))
+    .then(() => res.status(201).json({success : true, message: 'Todo created  !'}))
     .catch(error => res.status(400).json({ error }));
 };
 
 // update a Todo by id
 exports.update = (req, res, next) => {
   Todo.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Todo updated !'}))
+    .then(() => res.status(200).json({success : true, message: 'Todo updated !'}))
     .catch(error => res.status(400).json({ error }));
 };
 
 // delete a Todo by id
 exports.delete = (req, res, next) => {
   Todo.deleteOne({ _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Todo deleted !'}))
+    .then(() => res.status(200).json({success : true, message: 'Todo deleted !'}))
     .catch(error => res.status(400).json({ error }));
 };
