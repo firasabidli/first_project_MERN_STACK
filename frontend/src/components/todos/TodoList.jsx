@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsPencilSquare } from "react-icons/bs";
 
 
 import CreateTodo from './CreateTodo';
 import DeleteTodo from './DeleteTodo';
+import UpdateTodo from './UpdateTodo';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -23,7 +23,7 @@ const TodoList = () => {
   return (
     <div>
       <h2 className="text-center">Todo List</h2>
-      <CreateTodo  refreshTodos={refreshTodos} />
+      <CreateTodo  OnCreate={refreshTodos} />
      
       <table className="table table-hover table-bordered text-center mt-4 ">
         <thead>
@@ -41,9 +41,13 @@ const TodoList = () => {
             <td>{todo.title}</td>
             <td>{todo.description}</td>
             <td>
-              <button type="button" className="btn btn-warning">
-                <BsPencilSquare /> 
-              </button>
+                <UpdateTodo
+                  todoId={todo._id}
+                  todoTitle={todo.title}
+                  todoDescription={todo.description}
+                  onUpdate={refreshTodos}
+                />
+              
               {' '}
               <DeleteTodo todoId={todo._id} onDelete={refreshTodos}/>
               

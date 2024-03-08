@@ -13,8 +13,8 @@ function DeleteTodo({ todoId, onDelete }) {
   const confirmDelete = async () => {
     try {
       await axios.delete(`http://localhost:3001/api/todos/${todoId}`);
-      onDelete(); // Appeler la fonction de rafraîchissement après la suppression
-      handleClose(); // Fermer la modal après la suppression
+      onDelete(); 
+      handleClose(); 
     } catch (error) {
       console.error('Erreur lors de la suppression du Todo', error);
     }
